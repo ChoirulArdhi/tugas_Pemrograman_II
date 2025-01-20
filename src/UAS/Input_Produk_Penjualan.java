@@ -139,7 +139,7 @@ public class Input_Produk_Penjualan extends javax.swing.JFrame {
             
         try {
            Date adddate = null;
-            adddate = new SimpleDateFormat("yyyy-MM-dd").parse((String)getProductList().get(index).getadddate());
+            adddate = new SimpleDateFormat("dd-MM-yyyy").parse((String)getProductList().get(index).getadddate());
             txt_addDate.setDate(adddate);
         } catch (ParseException ex) {
             Logger.getLogger(Input_Produk_Penjualan.class.getName()).log(Level.SEVERE, null, ex);
@@ -454,7 +454,7 @@ public class Input_Produk_Penjualan extends javax.swing.JFrame {
                 PreparedStatement ps = con.prepareStatement("INSERT INTO produk(nama, harga, tanggal, gambar) "+"values(?,?,?,?)");
                 ps.setString(1, txt_name.getText());
                 ps.setString(2, txt_price.getText());
-                SimpleDateFormat DateFormat = new SimpleDateFormat("MM-dd-yyyy");
+                SimpleDateFormat DateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 String addDate = DateFormat.format(txt_addDate.getDate());
                 ps.setString(3, addDate);
                 
@@ -483,7 +483,7 @@ public class Input_Produk_Penjualan extends javax.swing.JFrame {
             ps = con.prepareStatement(UpdateQuery);
             ps.setString(1, txt_name.getText());
             ps.setString(2, txt_price.getText());
-            SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat DateFormat = new SimpleDateFormat("dd-MM-yyyy");
             String addDate = DateFormat.format(txt_addDate.getDate());
             ps.setString(3, addDate);
             ps.setInt(4, Integer.parseInt(txt_id.getText()));
@@ -493,7 +493,7 @@ public class Input_Produk_Penjualan extends javax.swing.JFrame {
             ps = con.prepareStatement(UpdateQuery);
             ps.setString(1, txt_name.getText());
             ps.setString(2, txt_price.getText());
-            SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat DateFormat = new SimpleDateFormat("dd-MM-yyyy");
             String addDate = DateFormat.format(txt_addDate.getDate());
             ps.setString(3, addDate);
             ps.setBlob(4, img);
